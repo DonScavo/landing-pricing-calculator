@@ -121,9 +121,19 @@ form {
     border-radius: 0.989vw;
 }
 
+.redesContainer {
+    display: flex;
+}
 
+.redBox {
+    display: flex;
+    align-items: center;
+}
 
-
+.switchSelectorBox {
+    display: flex;
+    align-items: center;
+}
 
 
 
