@@ -41,6 +41,10 @@ form {
     width: 48.72vw;
 }
 
+.planContainer h3 {
+    font-size: 1.40vw;
+}
+
 .contactarContainer {
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 16%);
@@ -99,6 +103,25 @@ form {
 .barraRango {
     width: 100%;
 }
+
+.mencionesBox {
+    margin: 1.77vw 0;
+}
+
+.mencionesBox p {
+    width: 21.61vw;
+}
+
+.mencionesNumber {
+    font-size: 1.30vw;
+    text-align: center;
+    width: 14.21vw;
+    padding: 1.09vw;
+    border: 1px solid #E6E2E2;
+    border-radius: 0.989vw;
+}
+
+
 
 
 
