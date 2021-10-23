@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    padding: 5vw 0;
+    background-color: #FAFAFA;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 75vw;
+    margin: auto;
+    color: #707070;
+}
+
+
+
+.lineSeparador {
+    background-color: #7B1ACE;
+    height: 2px;
+    width: 100%;
+    margin: 1.56vw 0;
+}
+
+.planContainer {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 16%);
+    padding: 2.5vw 3.9vw;
+    width: 48.72vw;
+}
+
+.contactarContainer {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 16%);
+    padding: 2.5vw 2.6vw;
+    width: 25.65vw;
+}
+
+.planStarterContainer {
+    border: 1px solid #E6E2E2;
+    display: flex;
+}
+
+.planStarterContainer div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1.97vw 2.08vw;
+}
+
+.planStarterBox {
+    border-right: 1px solid #E6E2E2;
+    width: 40%;
+    align-items: center;
+}
+
+.plantStarterIncluye {
+    width: 60%;
+    align-items: flex-start;
+}
+
+.titlePlanStarter {
+    font-size: 1.40vw;
+}
+
+.priceStarterPlan {
+    font-size: 1.30vw;
+}
+
+.priceStarterPlan span {
+    font-size: 2.08vw;
+    font-weight: bold;
+}
+
+.plantStarterIncluye p {
+    font-size: 1.14vw;
+    line-height: 1;
+}
+
+
+.mencionesBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barraRango {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
