@@ -1,0 +1,5 @@
+// js
+
+document.addEventListener('DOMContentLoaded' ()=> {
+    
+});
