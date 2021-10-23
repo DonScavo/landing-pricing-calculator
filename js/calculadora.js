@@ -1,3 +1,4 @@
+
 class CalculatorController{
     constructor(){
         this.rangeBar = document.querySelector('#barraRangoMenciones');
