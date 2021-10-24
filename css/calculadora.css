@@ -352,3 +352,126 @@ input:checked+.slideSwitch:before {
     border: 0;
     background-color: transparent;
 }
+
+.botonesPago {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.35vw;
+    position: relative;
+}
+
+.botonesPago a {
+    background-color: #F4F4F4;
+    font-size: 0.9375vw;
+    border: 1px solid transparent;
+    border-radius: 1.197vw;
+    width: 100%;
+    padding: 0.52vw;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.botonesPago .pagoMensual {
+    margin-right: -1vw;
+}
+.botonesPago .pagoAnual {
+    margin-left: -1vw;
+}
+
+.botonesPago .pagoSelected {
+    border: 1px solid #A573DD;
+    background-color: #fff;
+    color: #7B1ACE;
+    z-index: 2;
+}
+
+.pricePlan {
+    font-size: 2.60vw;
+    text-align: center;
+}
+
+.pricePlan .ffRegular {
+    font-size: 1.3vw;
+}
+
+.facturacionText {
+    text-align: center;
+    font-size: 0.93vw;
+}
+
+.feeInformation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.729vw;
+}
+
+.feeInformation img {
+    margin-right: 0.2vw;
+}
+
+.complementoAgregado {
+    background-color: #F4F4F4;
+    padding: 0.78vw 0.78vw 0.78vw 1.30vw;
+    margin: 0.52vw 0;
+    position: relative;
+}
+
+.complementoAgregado h4 {
+    font-size: 0.9375vw;
+    margin-bottom: 0.2vw;
+}
+
+.complementoAgregado p {
+    font-size: 0.78vw;
+}
+
+.botonQuitarComplemento {
+    font-size: 0.9375vw;
+    position: absolute;
+    top: 0.52vw;
+    right: 0.52vw;
+}
+
+.inputStyle {
+    background-color: transparent;
+    border: 1px solid #7B0ECE;
+    border-radius: 2.08vw;
+    padding: 0.52vw 1.04vw;
+    margin: 0.52vw 0;
+    width: 100%;
+    font-size: 1.04vw;
+    color: #606060;
+}
+
+.inputCheckContainer {
+    display: flex;
+    align-items: center;
+}
+
+.inputCheckContainer input {
+    width: 1.25vw;
+    height: 1.25vw;
+    margin: 0 0.52vw 0 0;
+    border-radius: 0.52vw;
+}
+
+.inputCheckContainer p {
+    font-size: 1.04vw;
+    width: fit-content;
+}
+
+.btnContactar {
+    background-color: #A573DD;
+    color: #fff;
+    display: block;
+    font-size: 1.145vw;
+    width: 16.19vw;
+    padding: 0.989vw;
+    margin: 2.08vw auto 0;
+    border-radius: 1.56vw;
+    border: 0;
+    cursor: pointer;
+}

@@ -274,28 +274,58 @@
 
         <section class="contactarContainer">
             <div class="botonesPago">
-                <button class="ffBold">Pago mensual</button>
-                <button class="ffBold">Pago anual <b>Ahorra 10%</b></button>
+                <a href="#" class="ffBold pagoMensual pagoSelected">Pago <br> mensual</a>
+                <a href="#" class="ffBold pagoAnual">Pago anual <br> <b>Ahorra 10%</b></a>
             </div>
 
-            <p class="ffBold">$<span class="totalPrice">690</span> / USD mes</p>
-            <p class="ffBold">Facturación mensual</p>
-            <p class="ffRegular"> <img src="" alt="information"> Fee de configuración | pago único: USD $300</p>
+            <p class="ffBold pricePlan">$<span class="totalPrice">690</span> <span class="ffRegular">/ USD mes</span>
+            </p>
+            <p class="ffBold facturacionText">Facturación mensual</p>
+            <p class="ffRegular feeInformation"> <img src="img/information.png" alt="information"> Fee de configuración
+                | pago único: USD $300</p>
+
+            <div class="lineSeparador"></div>
 
             <div class="complementosAgregados">
                 <div class="complementoAgregado">
-                    <p class="ffBold">KEYWORDS</p>
+                    <h4 class="ffBold">KEYWORDS</h4>
                     <p class="ffRegular">USD $0 / mes | Keywords ilimitadas</p>
+                </div>
+                <div class="complementoAgregado">
+                    <h4 class="ffBold">MARCAS PROPIAS</h4>
+                    <p class="ffRegular">USD $0 / mes | Hasta 10 marcas propias</p>
+                </div>
+                <div class="complementoAgregado">
+                    <h4 class="ffBold">MEDIOS A LEER</h4>
+                    <p class="ffRegular">USD $0 / mes | Facebook de marcas propias, Instagram, Medios Nacionales, Blogs.
+                    </p>
+                </div>
+                <div class="complementoAgregado">
+                    <h4 class="ffBold">MENCIONES</h4>
+                    <p class="ffRegular">USD $0 / mes | 10,000 menciones</p>
+                </div>
+
+                <div class="complementoAgregado complementoEliminable">
+                    <h4 class="ffBold">TWITTER</h4>
+                    <p class="ffRegular">USD $200 / mes </p>
+                    <a href="#" class="botonQuitarComplemento"> X </a>
+                </div>
+
+                <div class="complementoAgregado complementoEliminable">
+                    <h4 class="ffBold">USUARIOS</h4>
+                    <p class="ffRegular">USD $200 / mes | 5 usuarios extra </p>
+                    <a href="#" class="botonQuitarComplemento"> X </a>
                 </div>
             </div>
 
             <div class="lineSeparador"></div>
 
-            <input type="text" name="name" required>
-            <input type="text" name="empresa" required>
-            <input type="email" name="email" required>
+            <input class="inputStyle ffBold" type="text" name="name" placeholder="Nombre" required>
+            <input class="inputStyle ffBold" type="text" name="empresa" placeholder="Empresa" required>
+            <input class="inputStyle ffBold" type="email" name="email" placeholder="Correo electrónico" required>
 
-            <div><input class="ffRegular" type="checkbox" required>
+            <div class="inputCheckContainer">
+                <input class="ffRegular" type="checkbox" required>
                 <p class="ffRegular">Aceptar <a href="#" target="_blank" rel="noopener noreferrer">términos
                         y condiciones</a></p>
             </div>
