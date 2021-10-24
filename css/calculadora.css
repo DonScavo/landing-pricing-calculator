@@ -52,7 +52,7 @@ form {
 .contactarContainer {
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 16%);
-    padding: 2.5vw 2.6vw;
+    padding: 2.5vw 2.6vw 5vw;
     width: 25.65vw;
 }
 
@@ -110,42 +110,42 @@ form {
 
 
 .barraRango {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 0.26vw;
-  border-radius: 0.26vw;
-  border: 1px solid #707070;
-  background: transparent;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.26vw;
+    border-radius: 0.26vw;
+    border: 1px solid #707070;
+    background: transparent;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
 }
 
 .barraRango:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .barraRango::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1.82vw;
-  height: 1.82vw;
-  border-radius: 50%;
-  background: #A573DD;
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.82vw;
+    height: 1.82vw;
+    border-radius: 50%;
+    background: #A573DD;
+    cursor: pointer;
 }
 
 .barraRango::-moz-range-thumb {
-  width: 1.82vw;
-  height: 1.82vw;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
+    width: 1.82vw;
+    height: 1.82vw;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
 }
 
 
-.rangoMencionesValores{
+.rangoMencionesValores {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -422,6 +422,7 @@ input:checked+.slideSwitch:before {
 .botonesPago .pagoMensual {
     margin-right: -1vw;
 }
+
 .botonesPago .pagoAnual {
     margin-left: -1vw;
 }
@@ -520,4 +521,304 @@ input:checked+.slideSwitch:before {
     border-radius: 1.56vw;
     border: 0;
     cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+        max-width: 90vw;
+    }
+
+    .planContainer {
+        width: 100%;
+    }
+
+    .contactarContainer {
+        width: 100%;
+    }
+
+    .lineSeparador {
+        margin: 5vw 0;
+    }
+
+    .planStarterContainer {
+        flex-direction: column;
+    }
+
+    .planStarterBox {
+        width: 50%;
+    }
+
+    .planStarterContainer div {
+        width: 100%;
+        align-items: center;
+    }
+
+    .planContainer h3 {
+        font-size: 6.66vw;
+    }
+
+    .priceStarterPlan {
+        font-size: 5.33vw;
+    }
+
+    .plantStarterIncluye {
+        width: 50%;
+    }
+
+    .priceStarterPlan span {
+        font-size: 5.33vw;
+    }
+
+    .plantStarterIncluye p {
+        font-size: 4.8vw;
+    }
+
+    .mencionesBox {
+        margin: 2.5vw 0;
+        flex-direction: column;
+    }
+
+    .mencionesBox p {
+        width: 100%;
+        font-size: 4.8vw;
+    }
+
+    .mencionesNumber {
+        margin-top: 2.5vw;
+        width: 100%;
+        font-size: 5.3vw;
+        border-radius: 1.989vw;
+    }
+
+    .barraRango {
+        height: 2.66vw;
+        border-radius: 2.26vw;
+    }
+
+    .barraRango::-webkit-slider-thumb {
+        width: 6.66vw;
+        height: 6.66vw;
+    }
+
+    .barraRango::-moz-range-thumb {
+        width: 6.66vw;
+        height: 6.66vw;
+    }
+
+    .rangoMencionesValores {
+        font-size: 4.8vw;
+    }
+
+    .redesContainer {
+        flex-direction: column;
+        margin: 5vw 0;
+    }
+
+    .redBox img {
+        width: 11vw;
+        margin-right: 2vw;
+    }
+
+    .redBox p {
+        max-width: 100%;
+    }
+
+    .switchSelectorBox {
+        width: 100%;
+        margin-top: 2.5vw;
+        justify-content: space-around;
+    }
+
+    .switch {
+        width: 26vw;
+        height: 10vw;
+    }
+
+    .slideSwitch {
+        font-size: 4.26vw;
+    }
+
+    .slideSwitch:before {
+        width: 9vw;
+        height: 9vw;
+        left: 1.31vw;
+        bottom: 0.44vw;
+    }
+
+    .slideSwitch.round {
+        border-radius: 6.19vw;
+    }
+
+    input:checked+.slideSwitch:before {
+        -webkit-transform: translateX(13.6vw);
+        -ms-transform: translateX(13.6vw);
+        transform: translateX(13.6vw);
+    }
+
+    .redSeleccionada {
+        font-size: 4.26vw;
+        width: 26vw;
+        border-radius: 1.62vw;
+    }
+
+    .btnPlusAndLess {
+        font-size: 6.66vw;
+    }
+
+    .complementosBox {
+        margin-bottom: 5vw;
+    }
+
+    .complementoCard {
+        margin: 2.5vw 0;
+        padding: 1.5vw;
+    }
+
+    .complementoCard input {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .complementoInfo {
+        max-width: 90%;
+    }
+
+    .complementoInfo h4 {
+        font-size: 4.8vw;
+    }
+
+    .complementoInfo p {
+        font-size: 4.26vw;
+    }
+
+    .complementoInfo p:nth-child(2) {
+        margin: 1vw 0 2vw;
+    }
+
+    .otrosComplementosBox {
+        margin-bottom: 5vw;
+    }
+
+    .complementosExtras {
+        margin: 5vw 0;
+        flex-direction: column;
+    }
+
+    .incrementComponents {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 2.5vw;
+    }
+
+    .complementoIconBox img {
+        width: 11vw;
+        margin-right: 2vw;
+    }
+
+    .complementoIconBox p {
+        max-width: 100%;
+        font-size: 4.26vw;
+    }
+
+    .incrementBox {
+        width: 26vw;
+        font-size: 4.26vw;
+        border-radius: 5vw;
+        padding: 1.5vw 0;
+    }
+
+    .incrementBox button {
+        font-size: 4.26vw;
+    }
+
+    .otroComplementoPrice {
+        font-size: 4.26vw;
+        width: 26vw;
+        border-radius: 1.62vw;
+    }
+
+    .botonesPago {
+        margin-bottom: 2.5vw;
+    }
+
+    .botonesPago a {
+        font-size: 5.33vw;
+        border-radius: 4vw;
+        padding: 2vw 1.5vw;
+    }
+
+    .botonesPago .pagoMensual {
+        margin-right: -2vw;
+    }
+
+    .botonesPago .pagoAnual {
+        margin-left: -2vw;
+    }
+
+    .pricePlan {
+        font-size: 8vw;
+    }
+
+    .pricePlan .ffRegular {
+        font-size: 6.66vw;
+    }
+
+    .facturacionText {
+        font-size: 5.3vw;
+    }
+
+    .feeInformation {
+        font-size: 3.78vw;
+    }
+
+    .feeInformation img {
+        margin-right: 1vw;
+    }
+
+    .complementoAgregado {
+        margin: 2.5vw 0;
+        padding: 2.5vw 5vw 2.5vw 3.5vw;
+    }
+
+    .complementoAgregado h4 {
+        font-size: 4.8vw;
+    }
+
+    .complementoAgregado p {
+        font-size: 4.26vw;
+    }
+
+    .botonQuitarComplemento {
+        font-size: 4.8vw;
+        top: 1vw;
+        right: 1vw;
+    }
+
+    .inputStyle {
+        font-size: 4.8vw;
+        border-radius: 5vw;
+        padding: 2vw;
+        margin: 2.5vw 0;
+    }
+
+    .inputCheckContainer p {
+        font-size: 4.2vw;
+    }
+
+    .inputCheckContainer input {
+        width: 5vw;
+        height: 5vw;
+        margin: 0 2vw 0 0;
+    }
+
+    .btnContactar {
+        font-size: 5.3vw;
+        width: 65vw;
+        padding: 1.5vw 2vw;
+        border-radius: 5vw;
+        margin: 5vw auto 0;
+    }
 }
