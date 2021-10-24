@@ -176,6 +176,42 @@ class CalculatorController {
                     {
                         value: 1,
                         price: 20,
+                    },
+                    {
+                        value: 2,
+                        price: 40
+                    },
+                    {
+                        value: 3,
+                        price: 60
+                    },
+                    {
+                        value: 4,
+                        price: 80
+                    },
+                    {
+                        value: 5,
+                        price: 80
+                    },
+                    {
+                        value: 6,
+                        price: 96
+                    },
+                    {
+                        value: 7,
+                        price: 112
+                    },
+                    {
+                        value: 8,
+                        price: 128
+                    },
+                    {
+                        value: 9,
+                        price: 144
+                    },
+                    {
+                        value: 10,
+                        price: 160
                     }
                 ]
             case 'marks':
@@ -184,8 +220,44 @@ class CalculatorController {
                         price: 0,
                     },
                     {
-                        value: 1,
-                        price: 20,
+                        value: 10,
+                        price: 50,
+                    },
+                    {
+                        value: 20,
+                        price: 100
+                    },
+                    {
+                        value: 30,
+                        price: 150
+                    },
+                    {
+                        value: 40,
+                        price: 200
+                    },
+                    {
+                        value: 50,
+                        price: 200
+                    },
+                    {
+                        value: 60,
+                        price: 240
+                    },
+                    {
+                        value: 70,
+                        price: 280
+                    },
+                    {
+                        value: 80,
+                        price: 320
+                    },
+                    {
+                        value: 90,
+                        price: 360
+                    },
+                    {
+                        value: 100,
+                        price: 400
                     }
                 ]
             case 'competitors':
@@ -195,7 +267,43 @@ class CalculatorController {
                     },
                     {
                         value: 1,
-                        price: 20,
+                        price: 50,
+                    },
+                    {
+                        value: 2,
+                        price: 100
+                    },
+                    {
+                        value: 3,
+                        price: 150
+                    },
+                    {
+                        value: 4,
+                        price: 200
+                    },
+                    {
+                        value: 5,
+                        price: 200
+                    },
+                    {
+                        value: 6,
+                        price: 240
+                    },
+                    {
+                        value: 7,
+                        price: 280
+                    },
+                    {
+                        value: 8,
+                        price: 320
+                    },
+                    {
+                        value: 9,
+                        price: 360
+                    },
+                    {
+                        value: 10,
+                        price: 400
                     }
                 ]
 
