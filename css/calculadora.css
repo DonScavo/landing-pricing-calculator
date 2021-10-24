@@ -15,6 +15,9 @@ h4,
 p {
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 
 form {
     display: flex;
@@ -125,6 +128,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0.52vw 0;
 }
 
 .redBox {
@@ -154,10 +158,6 @@ form {
     display: flex;
     align-items: center;
 }
-
-
-
-
 
 
 /* The switch - the box around the slider */
@@ -219,4 +219,47 @@ input:checked+.slideSwitch:before {
 
 .slideSwitch.round:before {
     border-radius: 50%;
+}
+
+
+.complementosBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.87vw;
+}
+.btnPlusAndLess {
+    color: #A573DD;
+    font-size: 2.08vw;
+}
+.complementoCard {
+    background-color: #fff;
+    display: flex;
+    padding: 0.83vw;
+    margin: 0.52vw 0;
+    border: 1px solid #E6E2E2;
+}
+.complementoCard input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    margin: 0 1.04vw 0 0;
+    width: 1.265vw;
+    height: 1.265vw;
+    border: 1px solid #E6E2E2;
+}
+.complementoCard input:checked {
+    background-color: #A573DD;
+}
+.complementoInfo {
+    max-width: 33.385vw;
+}
+.complementoInfo h4 {
+    font-size: 0.9375vw;
+}
+.complementoInfo p {
+    font-size: 1.04vw;
+}
+.complementoInfo p:nth-child(2) {
+    margin: 0.52vw 0 1.04vw;
 }
