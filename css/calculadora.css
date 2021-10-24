@@ -108,6 +108,52 @@ form {
     width: 100%;
 }
 
+
+.barraRango {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 0.26vw;
+  border-radius: 0.26vw;
+  border: 1px solid #707070;
+  background: transparent;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.barraRango:hover {
+  opacity: 1;
+}
+
+.barraRango::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.82vw;
+  height: 1.82vw;
+  border-radius: 50%;
+  background: #A573DD;
+  cursor: pointer;
+}
+
+.barraRango::-moz-range-thumb {
+  width: 1.82vw;
+  height: 1.82vw;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+
+.rangoMencionesValores{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.04vw;
+    font-size: 1.04vw;
+}
+
+
 .mencionesBox {
     margin: 1.77vw 0;
 }
@@ -339,7 +385,7 @@ input:checked+.slideSwitch:before {
     border-radius: 1.19vw;
     font-size: .9375vw;
     width: 5.625vw;
-    padding: 0.52vw;
+    padding: 0.52vw 0;
     text-align: center;
 }
 

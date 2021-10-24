@@ -322,11 +322,12 @@ class CalculatorController {
 const init = new CalculatorController();
 
 
+
+
+
 const botonesPlusAndLess = document.querySelectorAll('.btnPlusAndLess');
 const complementosCards = document.querySelector('.complementosCards');
 const otrosComplementosContainer = document.querySelector('.otrosComplementosContainer');
-
-
 
 botonesPlusAndLess.forEach((btnPlusAndLess, index) => {
     btnPlusAndLess.addEventListener('click', (e) => {
@@ -338,6 +339,24 @@ botonesPlusAndLess.forEach((btnPlusAndLess, index) => {
             otrosComplementosContainer.classList.toggle('complementosExtrasActive');
         }
 
-
     });
 });
+
+const pagoMensual = document.getElementById('pagoMensual');
+const pagoAnual = document.getElementById('pagoAnual');
+
+pagoAnual.addEventListener('click', () => {
+    if (pagoAnual.classList.contains('pagoSelected')) {
+
+    } else {
+        pagoAnual.classList.add('pagoSelected');
+        pagoMensual.classList.remove('pagoSelected');
+    }
+});
+
+pagoMensual.addEventListener('click', () => {
+    pagoMensual.classList.add('pagoSelected');
+    pagoAnual.classList.remove('pagoSelected');
+
+});
+
