@@ -15,6 +15,7 @@ h4,
 p {
     margin: 0;
 }
+
 a {
     text-decoration: none;
 }
@@ -140,7 +141,8 @@ form {
     width: 3.22vw;
     margin-right: 0.52vw;
 }
-.redBox p{
+
+.redBox p {
     max-width: 23.125vw;
 }
 
@@ -228,10 +230,20 @@ input:checked+.slideSwitch:before {
     justify-content: space-between;
     margin-bottom: 1.87vw;
 }
+
 .btnPlusAndLess {
     color: #A573DD;
     font-size: 2.08vw;
 }
+
+.complementosCards {
+    display: none;
+}
+
+.complementosCardsActive {
+    display: block;
+}
+
 .complementoCard {
     background-color: #fff;
     display: flex;
@@ -239,6 +251,7 @@ input:checked+.slideSwitch:before {
     margin: 0.52vw 0;
     border: 1px solid #E6E2E2;
 }
+
 .complementoCard input {
     appearance: none;
     -moz-appearance: none;
@@ -248,18 +261,94 @@ input:checked+.slideSwitch:before {
     height: 1.265vw;
     border: 1px solid #E6E2E2;
 }
+
 .complementoCard input:checked {
     background-color: #A573DD;
 }
+
 .complementoInfo {
     max-width: 33.385vw;
 }
+
 .complementoInfo h4 {
     font-size: 0.9375vw;
 }
+
 .complementoInfo p {
     font-size: 1.04vw;
 }
+
 .complementoInfo p:nth-child(2) {
     margin: 0.52vw 0 1.04vw;
+}
+
+.otrosComplementosBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.87vw;
+}
+
+.otrosComplementosContainer {
+    display: none;
+}
+
+.complementosExtras {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.52vw 0;
+}
+
+.complementosExtrasActive {
+    display: block;
+}
+
+.complementoIconBox {
+    display: flex;
+    align-items: center;
+}
+
+.complementoIconBox img {
+    width: 3.22vw;
+    margin-right: 0.52vw;
+}
+
+.complementoIconBox p {
+    max-width: 23vw;
+    font-size: 0.93vw;
+}
+
+.incrementComponents {
+    display: flex;
+    align-items: center;
+}
+
+.otroComplementoPrice {
+    font-size: 0.729vw;
+    text-align: center;
+    width: 4.6vw;
+    padding: 0.52vw;
+    border: 1px solid #E6E2E2;
+    border-radius: 0.52vw;
+    margin-left: 0.93vw;
+}
+
+.incrementBox {
+    background-color: #F4F4F4;
+    border-radius: 1.19vw;
+    font-size: .9375vw;
+    width: 5.625vw;
+    padding: 0.52vw;
+    text-align: center;
+}
+
+.incrementBox .ICValue {
+    margin: 0 0.52vw;
+}
+
+.incrementBox button {
+    font-size: .9375vw;
+    border: 0;
+    background-color: transparent;
 }

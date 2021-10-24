@@ -1,6 +1,5 @@
-
-class CalculatorController{
-    constructor(){
+class CalculatorController {
+    constructor() {
         this.rangeBar = document.querySelector('#barraRangoMenciones');
         this.switchs = document.querySelectorAll('.switchInput');
         this.incrementComponents = document.querySelectorAll('.incrementComponents');
@@ -10,14 +9,14 @@ class CalculatorController{
 
         this.init();
     }
-    init(){
-        this.rangeBar.addEventListener('change', ()=>this.rangeBarController());
+    init() {
+        this.rangeBar.addEventListener('change', () => this.rangeBarController());
 
-        this.switchs.forEach(e=>e.addEventListener('change', ()=>this.switchsController(e)));
+        this.switchs.forEach(e => e.addEventListener('change', () => this.switchsController(e)));
 
-        this.incrementComponents.forEach(e=>this.incrementComponentController(e));
+        this.incrementComponents.forEach(e => this.incrementComponentController(e));
     }
-    rangeBarController(){
+    rangeBarController() {
         const stepts = [{
                 value: 10000,
                 price: 0,
@@ -37,35 +36,36 @@ class CalculatorController{
             {
                 value: 200000,
                 price: 1000,
-        }];
-    
+            }
+        ];
+
         const plan = stepts[this.rangeBar.value - 1];
-    
+
         console.log(plan)
     }
-    switchsController(e){
+    switchsController(e) {
         console.log(e.value)
     }
-    incrementComponentController(e){
+    incrementComponentController(e) {
         const type = e.dataset.component,
-              subBtn = e.querySelector('.subBtn'),
-              plusBtn = e.querySelector('.plusBtn'),
-              ICValue = e.querySelector('.ICValue'),
-              price = e.querySelector('.ICPrice'),
-              maxValue = Number(ICValue.dataset.max);
+            subBtn = e.querySelector('.subBtn'),
+            plusBtn = e.querySelector('.plusBtn'),
+            ICValue = e.querySelector('.ICValue'),
+            price = e.querySelector('.ICPrice'),
+            maxValue = Number(ICValue.dataset.max);
 
         let value = Number(ICValue.dataset.value);
 
-        plusBtn.addEventListener('click', ()=>{
-            if(value < maxValue) value++;
+        plusBtn.addEventListener('click', () => {
+            if (value < maxValue) value++;
             printData();
-        }); 
-        subBtn.addEventListener('click', ()=>{
-            if(value > 0) value--;
+        });
+        subBtn.addEventListener('click', () => {
+            if (value > 0) value--;
             printData();
-        });        
+        });
 
-        const printData = ()=>{
+        const printData = () => {
             const data = this.getICdata(type);
             price.innerText = data[value].price;
             ICValue.innerText = data[value].value;
@@ -73,11 +73,10 @@ class CalculatorController{
 
         printData();
     }
-    getICdata(key){
+    getICdata(key) {
         switch (key) {
             case 'users':
-                return [
-                    {
+                return [{
                         value: 0,
                         price: 0,
                     },
@@ -122,10 +121,9 @@ class CalculatorController{
                         price: 400,
                     },
                 ]
-        
+
             case 'reports':
-                return [
-                    {
+                return [{
                         value: 0,
                         price: 0,
                     },
@@ -170,16 +168,68 @@ class CalculatorController{
                         price: 160,
                     },
                 ]
+            case 'alerts':
+                return [{
+                        value: 0,
+                        price: 0,
+                    },
+                    {
+                        value: 1,
+                        price: 20,
+                    }
+                ]
+            case 'marks':
+                return [{
+                        value: 0,
+                        price: 0,
+                    },
+                    {
+                        value: 1,
+                        price: 20,
+                    }
+                ]
+            case 'competitors':
+                return [{
+                        value: 0,
+                        price: 0,
+                    },
+                    {
+                        value: 1,
+                        price: 20,
+                    }
+                ]
 
             default:
                 break;
         }
+
     }
 
-    printTotalPrice(){
+    printTotalPrice() {
         this.totalPrice.innerText = this.total;
     }
 }
 
 
 const init = new CalculatorController();
+
+
+const botonesPlusAndLess = document.querySelectorAll('.btnPlusAndLess');
+const complementosCards = document.querySelector('.complementosCards');
+const otrosComplementosContainer = document.querySelector('.otrosComplementosContainer');
+
+
+
+botonesPlusAndLess.forEach((btnPlusAndLess, index) => {
+    btnPlusAndLess.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (index == 0) {
+            complementosCards.classList.toggle('complementosCardsActive');
+        } else {
+            otrosComplementosContainer.classList.toggle('complementosExtrasActive');
+        }
+
+
+    });
+});

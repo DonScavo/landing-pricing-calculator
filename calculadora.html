@@ -18,7 +18,8 @@
             <div class="planStarterContainer">
                 <div class="planStarterBox">
                     <h3 class="titlePlanStarter ffBold">Plan Starter</h3>
-                    <p class="priceStarterPlan ffRegular"><strong class="ffBold">$<span class="totalPrice">690</span></strong> / USD mes</p>
+                    <p class="priceStarterPlan ffRegular"><strong class="ffBold">$<span
+                                class="totalPrice">690</span></strong> / USD mes</p>
                 </div>
                 <div class="plantStarterIncluye">
                     <p class="ffBold">Incluye:</p>
@@ -55,7 +56,7 @@
                         <label class="switch">
                             <input type="checkbox" class="switchInput" value="">
                             <span class="slideSwitch round">
-                                ON &nbsp; &nbsp;  OFF 
+                                ON &nbsp; &nbsp; OFF
                             </span>
                         </label>
                         <div class="redSeleccionada ffRegular">No seleccionado</div>
@@ -74,7 +75,7 @@
                         <label class="switch">
                             <input type="checkbox" class="switchInput" value="">
                             <span class="slideSwitch round">
-                                ON &nbsp; &nbsp;  OFF 
+                                ON &nbsp; &nbsp; OFF
                             </span>
                         </label>
                         <div class="redSeleccionada ffRegular">No seleccionado</div>
@@ -92,7 +93,7 @@
                         <label class="switch">
                             <input type="checkbox" class="switchInput" value="">
                             <span class="slideSwitch round">
-                                ON &nbsp; &nbsp;  OFF 
+                                ON &nbsp; &nbsp; OFF
                             </span>
                         </label>
                         <div class="redSeleccionada ffRegular">No seleccionado</div>
@@ -111,7 +112,7 @@
                         <label class="switch">
                             <input type="checkbox" class="switchInput" value="">
                             <span class="slideSwitch round">
-                                ON &nbsp; &nbsp;  OFF 
+                                ON &nbsp; &nbsp; OFF
                             </span>
                         </label>
                         <div class="redSeleccionada ffRegular">No seleccionado</div>
@@ -165,97 +166,106 @@
             <div class="lineSeparador"></div>
 
             <!-- seccion OTROS complementos  -->
-            <div>
+            <div class="otrosComplementos">
                 <div class="otrosComplementosBox">
                     <h3 class="ffBold">Otros complementos:</h3>
-                    <img class="btnPlusAndLess" src="" alt="plus and less">
+                    <a class="btnPlusAndLess ffBold" href="#"> + </a>
                 </div>
-
-                <div>
-                    <div>
-                        <img src="" alt="usuarios">
-                        <p class="ffRegular"><b>USUARIOS:</b> Incrementa el número de accesos a la plataforma.</p>
-                    </div>
-                    <div class="incrementComponents" data-component="users">
-                        <div class="ffRegular">
-                            <button type="button" class="subBtn">-</button>
-                            <span data-max="10" data-value="1" class="ICValue"></span>
-                            <button type="button" class="plusBtn">+</button>
+                <div class="otrosComplementosContainer">
+                    <div class="complementosExtras">
+                        <div class="complementoIconBox">
+                            <img src="img/icono-usuario-extra.png" alt="usuarios">
+                            <p class="ffRegular"><b>USUARIOS:</b> Incrementa el número de accesos a la plataforma.</p>
                         </div>
-                        <div class="otroComplementoPrice ffRegular">
-                            <b>$<span class="ICPrice">200</span></b>
-                            USD mes
-                        </div>
-                    </div>
-                </div>
-                <!-- otro complemento 2-->
-                <div>
-                    <div>
-                        <img src="" alt="redes automaticas">
-                        <p class="ffRegular"><b>REPORTES AUTOMÁTICOS:</b> Añade más informes personalizados a tu plan.
-                        </p>
-                    </div>
-                    <div class="incrementComponents" data-component="reports">
-                        <div class="ffRegular">
-                            <button type="button" class="subBtn">-</button>
-                            <span data-max="10" data-value="1" class="ICValue"></span>
-                            <button type="button" class="plusBtn">+</button>
-                        </div>
-                        <div class="otroComplementoPrice ffRegular">
-                            <b>$<span class="ICPrice">200</span></b>
-                            USD mes
+                        <div class="incrementComponents" data-component="users">
+                            <div class="incrementBox ffRegular">
+                                <button type="button" class="subBtn">-</button>
+                                <span data-max="10" data-value="1" class="ICValue"></span>
+                                <button type="button" class="plusBtn">+</button>
+                            </div>
+                            <div class="otroComplementoPrice ffRegular">
+                                <b>$<span class="ICPrice">200</span></b> <br>
+                                USD mes
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- otro complemento 3-->
-                <div>
-                    <div>
-                        <img src="" alt="alertas automaticas">
-                        <p class="ffRegular"><b>ALERTAS AUTOMÁTICAS:</b> Cubre todos los temas de tu interés sumando
-                            alertas.</p>
-                    </div>
-                    <div>
-                        <div class="ffRegular">
-                            <button>-</button>
-                            <span data-default="1" data-max="10"></span>
-                            <button>+</button>
+                    <!-- otro complemento 2-->
+                    <div class="complementosExtras">
+                        <div class="complementoIconBox">
+                            <img src="img/icono-reporte-extra.png" alt="redes automaticas">
+                            <p class="ffRegular"><b>REPORTES AUTOMÁTICOS:</b> Añade más informes personalizados a tu
+                                plan.
+                            </p>
                         </div>
-                        <div class="otroComplementoPrice ffRegular"><b>$40</b>
-                            USD mes</div>
-                    </div>
-                </div>
-                <!-- otro complemento 4-->
-                <div>
-                    <div>
-                        <img src="" alt="marcas propias">
-                        <p class="ffRegular"><b>MARCAS PROPIAS ADICIONALES:</b> La opción ideal si tienes muchas marcas
-                            a monitorear.</p>
-                    </div>
-                    <div>
-                        <div class="ffRegular">
-                            <button>-</button>
-                            <span data-default="1" data-max="10"></span>
-                            <button>+</button>
+                        <div class="incrementComponents" data-component="reports">
+                            <div class="incrementBox ffRegular">
+                                <button type="button" class="subBtn">-</button>
+                                <span data-max="10" data-value="1" class="ICValue"></span>
+                                <button type="button" class="plusBtn">+</button>
+                            </div>
+                            <div class="otroComplementoPrice ffRegular">
+                                <b>$<span class="ICPrice">200</span></b> <br>
+                                USD mes
+                            </div>
                         </div>
-                        <div class="otroComplementoPrice ffRegular"><b>$50</b>
-                            USD mes</div>
                     </div>
-                </div>
-                <!-- otro complemento 5 -->
-                <div>
-                    <div>
-                        <img src="" alt="marcas propias">
-                        <p class="ffRegular"><b>COMPETIDORES EXTRA:</b> No pierdas de vista a todas las marcas de tu
-                            sector.</p>
-                    </div>
-                    <div>
-                        <div class="ffRegular">
-                            <button>-</button>
-                            <span data-default="1" data-max="10"></span>
-                            <button>+</button>
+                    <!-- otro complemento 3-->
+                    <div class="complementosExtras">
+                        <div class="complementoIconBox">
+                            <img src="img/iconos-alerta.png" alt="alertas automaticas">
+                            <p class="ffRegular"><b>ALERTAS AUTOMÁTICAS:</b> Cubre todos los temas de tu interés sumando
+                                alertas.</p>
                         </div>
-                        <div class="otroComplementoPrice ffRegular"><b>$50</b>
-                            USD mes</div>
+                        <div class="incrementComponents" data-component="alerts">
+                            <div class="incrementBox ffRegular">
+                                <button type="button" class="subBtn">-</button>
+                                <span data-max="10" data-value="1" class="ICValue"></span>
+                                <button type="button" class="plusBtn">+</button>
+                            </div>
+                            <div class="otroComplementoPrice ffRegular">
+                                <b>$<span class="ICPrice">40</span></b> <br>
+                                USD mes
+                            </div>
+                        </div>
+                    </div>
+                    <!-- otro complemento 4-->
+                    <div class="complementosExtras">
+                        <div class="complementoIconBox">
+                            <img src="img/icono-marca-propia.png" alt="marcas propias">
+                            <p class="ffRegular"><b>MARCAS PROPIAS ADICIONALES:</b> La opción ideal si tienes muchas
+                                marcas
+                                a monitorear.</p>
+                        </div>
+                        <div class="incrementComponents" data-component="marks">
+                            <div class="incrementBox ffRegular">
+                                <button type="button" class="subBtn">-</button>
+                                <span data-max="10" data-value="1" class="ICValue"></span>
+                                <button type="button" class="plusBtn">+</button>
+                            </div>
+                            <div class="otroComplementoPrice ffRegular">
+                                <b>$<span class="ICPrice">50</span></b> <br>
+                                USD mes
+                            </div>
+                        </div>
+                    </div>
+                    <!-- otro complemento 5 -->
+                    <div class="complementosExtras">
+                        <div class="complementoIconBox">
+                            <img src="img/icono-competidor-extra.png" alt="competidor extra">
+                            <p class="ffRegular"><b>COMPETIDORES EXTRA:</b> No pierdas de vista a todas las marcas de tu
+                                sector.</p>
+                        </div>
+                        <div class="incrementComponents" data-component="competitors">
+                            <div class="incrementBox ffRegular">
+                                <button type="button" class="subBtn">-</button>
+                                <span data-max="10" data-value="1" class="ICValue"></span>
+                                <button type="button" class="plusBtn">+</button>
+                            </div>
+                            <div class="otroComplementoPrice ffRegular">
+                                <b>$<span class="ICPrice">50</span></b> <br>
+                                USD mes
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
