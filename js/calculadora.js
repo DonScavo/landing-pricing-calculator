@@ -5,6 +5,7 @@ class CalculatorController {
         this.incrementComponents = document.querySelectorAll('.incrementComponents');
         this.totalPrice = document.querySelectorAll('.totalPrice');
         this.complementCheckBot = document.querySelector('#complementCheckBot');
+        this.complementCheckDiff = document.querySelectorAll('.complementCheckDiff');
 
         this.prices = {
             default: 690,
@@ -22,6 +23,8 @@ class CalculatorController {
         this.incrementComponents.forEach(e => this.incrementComponentController(e));
 
         this.complementCheckBot.addEventListener('change', ()=>this.complementCheckBotController());
+
+        this.complementCheckDiff.forEach(e => e.addEventListener('change', () => this.complementCheckDiffController(e)));
     }
     rangeBarController() {
         const stepts = [{
@@ -72,28 +75,37 @@ class CalculatorController {
             this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
             redOff.style.display = 'block';
             redOn.style.display = 'none';
+
+            [...this.switchs].filter(l=>l.checked).forEach(k=>this.switchsController(k));
         }
         this.printTotalPrice();
         this.validateBotCheckbox();
     }
     validateBotCheckbox(){
-        if([...this.switchs].some(e=>!e.checked)) return false;
+        if([...this.switchs].some(e=>!e.checked)){
+            this.prices['red-all'] = 0;  
+            return false;
 
-        this.complementCheckBot.checked = true;
+        }else{
 
-        this.switchs.forEach(e=>{
-            const switchSelectorBox = e.closest('.switchSelectorBox');
-            const redOff = switchSelectorBox.querySelector('.redOff'),
-                  redOn = switchSelectorBox.querySelector('.redOn'),
-                  redFull = switchSelectorBox.querySelector('.redFull');
-                  
-            redOff.style.display = 'none';
-            redOn.style.display = 'none';
-            redFull.style.display = 'block';
-            this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
-        });        
-        this.prices['red-all'] = 300;        
-        this.printTotalPrice();
+            this.complementCheckBot.checked = true;
+
+            this.switchs.forEach(e=>{
+                const switchSelectorBox = e.closest('.switchSelectorBox');
+                const redOff = switchSelectorBox.querySelector('.redOff'),
+                    redOn = switchSelectorBox.querySelector('.redOn'),
+                    redFull = switchSelectorBox.querySelector('.redFull');
+                    
+                redOff.style.display = 'none';
+                redOn.style.display = 'none';
+                redFull.style.display = 'block';
+                this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
+            });        
+            this.prices['red-all'] = 300;        
+            this.printTotalPrice();
+                
+            //ocultar todas las cajas de redes y mostar la de full red y bot
+        }
     }
     complementCheckBotController(){
         if(this.complementCheckBot.checked){
@@ -131,6 +143,9 @@ class CalculatorController {
             const data = this.getICdata(type);
             price.innerText = data[value].price;
             ICValue.innerText = data[value].value;
+
+            const cardPrice = document.querySelector(`.cardPrice-${type}`);
+            cardPrice.innerText = data[value].price;
 
             this.prices['IC-'+type] = data[value].price;
             this.printTotalPrice();
@@ -376,6 +391,14 @@ class CalculatorController {
                 break;
         }
 
+    }
+    complementCheckDiffController(e){
+        if(e.checked) {
+            this.prices[e.dataset.name] = Number(e.value);
+        }else{
+            this.prices[e.dataset.name] = 0;
+        }
+        this.printTotalPrice();        
     }
 
     printTotalPrice() {
