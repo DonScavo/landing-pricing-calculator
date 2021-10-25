@@ -354,6 +354,8 @@ botonesPlusAndLess.forEach((btnPlusAndLess, index) => {
 
 const pagoMensual = document.getElementById('pagoMensual');
 const pagoAnual = document.getElementById('pagoAnual');
+const pricePlan = document.querySelector('.pricePlan');
+const pricePlanAnual = document.querySelector('.pricePlanAnual');
 
 pagoAnual.addEventListener('click', () => {
     if (pagoAnual.classList.contains('pagoSelected')) {
@@ -361,11 +363,17 @@ pagoAnual.addEventListener('click', () => {
     } else {
         pagoAnual.classList.add('pagoSelected');
         pagoMensual.classList.remove('pagoSelected');
+
+        pricePlan.style.display = "none";
+        pricePlanAnual.style.display = "block";
     }
 });
 
 pagoMensual.addEventListener('click', () => {
     pagoMensual.classList.add('pagoSelected');
     pagoAnual.classList.remove('pagoSelected');
+
+    pricePlan.style.display = "block";
+    pricePlanAnual.style.display = "none";
 
 });
