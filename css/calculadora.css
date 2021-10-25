@@ -496,6 +496,8 @@ input:checked+.slideSwitch:before {
     position: absolute;
     top: 0.52vw;
     right: 0.52vw;
+    border: 0;
+    padding: 0;
 }
 
 .inputStyle {

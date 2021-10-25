@@ -7,6 +7,7 @@ class CalculatorController {
         this.complementCheckBot = document.querySelector('#complementCheckBot');
         this.complementCheckDiff = document.querySelectorAll('.complementCheckDiff');
 
+
         this.prices = {
             default: 690,
         };
@@ -22,9 +23,10 @@ class CalculatorController {
 
         this.incrementComponents.forEach(e => this.incrementComponentController(e));
 
-        this.complementCheckBot.addEventListener('change', ()=>this.complementCheckBotController());
+        this.complementCheckBot.addEventListener('change', () => this.complementCheckBotController());
 
         this.complementCheckDiff.forEach(e => e.addEventListener('change', () => this.complementCheckDiffController(e)));
+
     }
     rangeBarController() {
         const stepts = [{
@@ -57,64 +59,73 @@ class CalculatorController {
 
         this.prices.plan = plan.price;
         this.printTotalPrice();
+
+        const mencionesPriceCard = document.querySelector('.menciones-price');
+        const mencionesQuantityCard = document.querySelector('.mencionesQuantity');
+        mencionesPriceCard.innerText = plan.price;
+        mencionesQuantityCard.innerText = numberWithCommas(plan.value);
     }
     switchsController(e) {
         const switchSelectorBox = e.closest('.switchSelectorBox');
         const redOff = switchSelectorBox.querySelector('.redOff'),
-              redOn = switchSelectorBox.querySelector('.redOn'),
-              redFull = switchSelectorBox.querySelector('.redFull');
+            redOn = switchSelectorBox.querySelector('.redOn'),
+            redFull = switchSelectorBox.querySelector('.redFull');
 
         redFull.style.display = 'none';
         this.complementCheckBot.checked = false;
 
-        if(e.checked){
-            this.prices['red-'+switchSelectorBox.dataset.ref] = Number(e.value);
+        if (e.checked) {
+            this.prices['red-' + switchSelectorBox.dataset.ref] = Number(e.value);
             redOff.style.display = 'none';
             redOn.style.display = 'block';
-        }else{
-            this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
+
+        } else {
+            this.prices['red-' + switchSelectorBox.dataset.ref] = 0;
             redOff.style.display = 'block';
             redOn.style.display = 'none';
 
-            [...this.switchs].filter(l=>l.checked).forEach(k=>this.switchsController(k));
+            [...this.switchs].filter(l => l.checked).forEach(k => this.switchsController(k));
+
         }
         this.printTotalPrice();
         this.validateBotCheckbox();
+
+        return e;
     }
-    validateBotCheckbox(){
-        if([...this.switchs].some(e=>!e.checked)){
-            this.prices['red-all'] = 0;  
+    validateBotCheckbox() {
+        if ([...this.switchs].some(e => !e.checked)) {
+            this.prices['red-all'] = 0;
             return false;
 
-        }else{
+        } else {
 
             this.complementCheckBot.checked = true;
 
-            this.switchs.forEach(e=>{
+            this.switchs.forEach(e => {
                 const switchSelectorBox = e.closest('.switchSelectorBox');
                 const redOff = switchSelectorBox.querySelector('.redOff'),
                     redOn = switchSelectorBox.querySelector('.redOn'),
                     redFull = switchSelectorBox.querySelector('.redFull');
-                    
+
                 redOff.style.display = 'none';
                 redOn.style.display = 'none';
                 redFull.style.display = 'block';
-                this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
-            });        
-            this.prices['red-all'] = 300;        
+                this.prices['red-' + switchSelectorBox.dataset.ref] = 0;
+            });
+            this.prices['red-all'] = 300;
             this.printTotalPrice();
-                
+
             //ocultar todas las cajas de redes y mostar la de full red y bot
         }
     }
-    complementCheckBotController(){
-        if(this.complementCheckBot.checked){
-            this.switchs.forEach(e=>{
+    complementCheckBotController() {
+        if (this.complementCheckBot.checked) {
+            this.switchs.forEach(e => {
                 e.checked = true;
                 this.switchsController(e);
             });
-        }else{
-            this.switchs.forEach(e=>{
+        } else {
+            this.switchs.forEach(e => {
                 e.checked = false;
                 this.switchsController(e);
             });
@@ -147,7 +158,7 @@ class CalculatorController {
             const cardPrice = document.querySelector(`.cardPrice-${type}`);
             cardPrice.innerText = data[value].price;
 
-            this.prices['IC-'+type] = data[value].price;
+            this.prices['IC-' + type] = data[value].price;
             this.printTotalPrice();
         };
 
@@ -392,13 +403,13 @@ class CalculatorController {
         }
 
     }
-    complementCheckDiffController(e){
-        if(e.checked) {
+    complementCheckDiffController(e) {
+        if (e.checked) {
             this.prices[e.dataset.name] = Number(e.value);
-        }else{
+        } else {
             this.prices[e.dataset.name] = 0;
         }
-        this.printTotalPrice();        
+        this.printTotalPrice();
     }
 
     printTotalPrice() {
@@ -408,15 +419,16 @@ class CalculatorController {
             this.total += this.prices[key];
         }
 
-        this.totalPrice.forEach(e=>e.innerText = numberWithCommas(this.total));
+        this.totalPrice.forEach(e => e.innerText = numberWithCommas(this.total));
 
         const totalPriceDiscount = document.querySelector('.totalPriceDiscount');
-        totalPriceDiscount.innerText = numberWithCommas(this.total*0.9);
+        totalPriceDiscount.innerText = numberWithCommas(this.total * 0.9);
     }
+
 }
 
-
 const calculatorController = new CalculatorController();
+
 
 
 
@@ -476,4 +488,37 @@ pagoMensual.addEventListener('click', () => {
     pricePlan.style.display = "block";
     pricePlanAnual.style.display = "none";
 
+});
+
+////////////////////////
+
+const removeCards = document.querySelectorAll('.removeCard');
+const complementosEliminable = document.querySelectorAll('.complementoEliminable');
+
+removeCards.forEach((removeCard, index) => {
+    removeCard.addEventListener('click', () => {
+        if (index == 0) {
+            complementosEliminable[0].style.display = "none";
+        } else if (index == 1) {
+            complementosEliminable[1].style.display = "none";
+        } else if (index == 2) {
+            complementosEliminable[2].style.display = "none";
+        } else if (index == 3) {
+            complementosEliminable[3].style.display = "none";
+        } else if (index == 4) {
+            complementosEliminable[4].style.display = "none";
+        } else if (index == 5) {
+            complementosEliminable[5].style.display = "none";
+        } else if (index == 6) {
+            complementosEliminable[6].style.display = "none";
+        } else if (index == 7) {
+            complementosEliminable[7].style.display = "none";
+        } else if (index == 8) {
+            complementosEliminable[8].style.display = "none";
+        } else if (index == 9) {
+            complementosEliminable[9].style.display = "none";
+        } else if (index == 10) {
+            complementosEliminable[10].style.display = "none";
+        }
+    });
 });
