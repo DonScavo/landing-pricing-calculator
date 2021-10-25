@@ -335,8 +335,18 @@ botonesPlusAndLess.forEach((btnPlusAndLess, index) => {
 
         if (index == 0) {
             complementosCards.classList.toggle('complementosCardsActive');
+            if (btnPlusAndLess.innerText == '+') {
+                btnPlusAndLess.innerText = '-'
+            } else {
+                btnPlusAndLess.innerText = '+'
+            }
         } else {
             otrosComplementosContainer.classList.toggle('complementosExtrasActive');
+            if (btnPlusAndLess.innerText == '+') {
+                btnPlusAndLess.innerText = '-'
+            } else {
+                btnPlusAndLess.innerText = '+'
+            }
         }
 
     });
@@ -359,4 +369,3 @@ pagoMensual.addEventListener('click', () => {
     pagoAnual.classList.remove('pagoSelected');
 
 });
-

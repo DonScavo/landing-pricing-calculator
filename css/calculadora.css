@@ -202,6 +202,10 @@ form {
     margin-left: 0.93vw;
 }
 
+.redOn {
+    display: none;
+}
+
 .switchSelectorBox {
     display: flex;
     align-items: center;
@@ -443,6 +447,18 @@ input:checked+.slideSwitch:before {
     font-size: 1.3vw;
 }
 
+.pricePlanAnual {
+    display: none;
+    font-size: 2.60vw;
+    text-align: center;
+}
+
+.pricePlanAnual .ffRegular {
+    font-size: 1.3vw;
+}
+.totalPriceFull {
+    text-decoration: line-through;
+}
 .facturacionText {
     text-align: center;
     font-size: 0.93vw;
