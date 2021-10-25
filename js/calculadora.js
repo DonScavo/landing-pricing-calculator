@@ -4,17 +4,24 @@ class CalculatorController {
         this.switchs = document.querySelectorAll('.switchInput');
         this.incrementComponents = document.querySelectorAll('.incrementComponents');
         this.totalPrice = document.querySelectorAll('.totalPrice');
+        this.complementCheckBot = document.querySelector('#complementCheckBot');
 
+        this.prices = {
+            default: 690,
+        };
         this.total = 0;
 
         this.init();
     }
     init() {
+        this.rangeBarController();
         this.rangeBar.addEventListener('change', () => this.rangeBarController());
 
         this.switchs.forEach(e => e.addEventListener('change', () => this.switchsController(e)));
 
         this.incrementComponents.forEach(e => this.incrementComponentController(e));
+
+        this.complementCheckBot.addEventListener('change', ()=>this.complementCheckBotController());
     }
     rangeBarController() {
         const stepts = [{
@@ -39,12 +46,67 @@ class CalculatorController {
             }
         ];
 
-        const plan = stepts[this.rangeBar.value - 1];
+        const plan = stepts[this.rangeBar.value];
 
-        console.log(plan)
+        const mencionesNumber = document.querySelector('.mencionesNumber');
+
+        mencionesNumber.innerText = numberWithCommas(plan.value);
+
+        this.prices.plan = plan.price;
+        this.printTotalPrice();
     }
     switchsController(e) {
-        console.log(e.value)
+        const switchSelectorBox = e.closest('.switchSelectorBox');
+        const redOff = switchSelectorBox.querySelector('.redOff'),
+              redOn = switchSelectorBox.querySelector('.redOn'),
+              redFull = switchSelectorBox.querySelector('.redFull');
+
+        redFull.style.display = 'none';
+        this.complementCheckBot.checked = false;
+
+        if(e.checked){
+            this.prices['red-'+switchSelectorBox.dataset.ref] = Number(e.value);
+            redOff.style.display = 'none';
+            redOn.style.display = 'block';
+        }else{
+            this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
+            redOff.style.display = 'block';
+            redOn.style.display = 'none';
+        }
+        this.printTotalPrice();
+        this.validateBotCheckbox();
+    }
+    validateBotCheckbox(){
+        if([...this.switchs].some(e=>!e.checked)) return false;
+
+        this.complementCheckBot.checked = true;
+
+        this.switchs.forEach(e=>{
+            const switchSelectorBox = e.closest('.switchSelectorBox');
+            const redOff = switchSelectorBox.querySelector('.redOff'),
+                  redOn = switchSelectorBox.querySelector('.redOn'),
+                  redFull = switchSelectorBox.querySelector('.redFull');
+                  
+            redOff.style.display = 'none';
+            redOn.style.display = 'none';
+            redFull.style.display = 'block';
+            this.prices['red-'+switchSelectorBox.dataset.ref] = 0;
+        });        
+        this.prices['red-all'] = 300;        
+        this.printTotalPrice();
+    }
+    complementCheckBotController(){
+        if(this.complementCheckBot.checked){
+            this.switchs.forEach(e=>{
+                e.checked = true;
+                this.switchsController(e);
+            });
+        }else{
+            this.switchs.forEach(e=>{
+                e.checked = false;
+                this.switchsController(e);
+            });
+        }
     }
     incrementComponentController(e) {
         const type = e.dataset.component,
@@ -69,6 +131,9 @@ class CalculatorController {
             const data = this.getICdata(type);
             price.innerText = data[value].price;
             ICValue.innerText = data[value].value;
+
+            this.prices['IC-'+type] = data[value].price;
+            this.printTotalPrice();
         };
 
         printData();
@@ -314,16 +379,28 @@ class CalculatorController {
     }
 
     printTotalPrice() {
-        this.totalPrice.innerText = this.total;
+        this.total = 0;
+
+        for (const key in this.prices) {
+            this.total += this.prices[key];
+        }
+
+        this.totalPrice.forEach(e=>e.innerText = numberWithCommas(this.total));
+
+        const totalPriceDiscount = document.querySelector('.totalPriceDiscount');
+        totalPriceDiscount.innerText = numberWithCommas(this.total*0.9);
     }
 }
 
 
-const init = new CalculatorController();
+const calculatorController = new CalculatorController();
 
 
 
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const botonesPlusAndLess = document.querySelectorAll('.btnPlusAndLess');
 const complementosCards = document.querySelector('.complementosCards');
