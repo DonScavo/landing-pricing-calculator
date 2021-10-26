@@ -27,7 +27,64 @@ class CalculatorController {
 
         this.complementCheckDiff.forEach(e => e.addEventListener('change', () => this.complementCheckDiffController(e)));
 
-        this.addCardsController();
+        this.removeCardsListeners();
+    }
+    removeCardsListeners(){
+        const redCard = document.querySelectorAll('.redCard'),
+              fullRedCard = document.querySelectorAll('.fullRedCard'),
+              complementDiffCard = document.querySelectorAll('.complementDiffCard'),
+              ICCards = document.querySelectorAll('.ICCards');
+
+        [...redCard, ...fullRedCard, ...complementDiffCard, ...ICCards].forEach(e=>{
+            e.querySelector('.removeCard').addEventListener('click', ()=>this.printHideCards(e, 'hide'));
+        });
+
+        //uncheck complementDiffCard
+        complementDiffCard.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const check = document.querySelector(`.complementCheckDiff[data-name="${ref}"]`);
+                if(check) {
+                    check.checked = false;
+                    this.complementCheckDiffController(check);
+                }
+            });
+        });
+
+        //uncheck ICCards 
+        ICCards.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const ICComponent = document.querySelector(`.incrementComponents[data-component="${ref}"]`);
+                this.printICData(ICComponent);
+            });
+        });
+        
+        //uncheck redCard 
+        redCard.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const redCheck = document.querySelector(`.switchSelectorBox[data-ref="${ref}"] input`);
+                if(redCheck){
+                    redCheck.checked = false;
+                    this.switchsController(redCheck);
+                }
+            });
+        });
+
+        //uncheck redCard 
+        fullRedCard.forEach(e=>{
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const check = document.querySelector(`#complementCheckBot`);
+                check.checked = false;
+                this.complementCheckBotController();
+            });
+        });
+    
     }
     rangeBarController() {
         const stepts = [{
@@ -54,17 +111,15 @@ class CalculatorController {
 
         const plan = stepts[this.rangeBar.value];
 
-        const mencionesNumber = document.querySelector('.mencionesNumber');
+        const mentionNumber = document.querySelectorAll('.mentionNumber');
 
-        mencionesNumber.innerText = numberWithCommas(plan.value);
+        mentionNumber.forEach(e=>e.innerText = numberWithCommas(plan.value));
 
         this.prices.plan = plan.price;
         this.printTotalPrice();
 
         const mencionesPriceCard = document.querySelector('.menciones-price');
-        const mencionesQuantityCard = document.querySelector('.mencionesQuantity');
-        mencionesPriceCard.innerText = plan.price;
-        mencionesQuantityCard.innerText = numberWithCommas(plan.value);
+        mencionesPriceCard.innerText = numberWithCommas(plan.price);
     }
     switchsController(e) {
         const switchSelectorBox = e.closest('.switchSelectorBox');
@@ -75,34 +130,46 @@ class CalculatorController {
         redFull.style.display = 'none';
         this.complementCheckBot.checked = false;
 
+        //remove fullRed clases
+        const redCard = document.querySelectorAll('.redCard');
+        redCard.forEach(r=>r.classList.remove('fullRedPrice'));
+
         if (e.checked) {
             this.prices['red-' + switchSelectorBox.dataset.ref] = Number(e.value);
             redOff.style.display = 'none';
             redOn.style.display = 'block';
+            
+            this.printHideCards(switchSelectorBox.dataset.ref, 'display');
 
         } else {
             this.prices['red-' + switchSelectorBox.dataset.ref] = 0;
             redOff.style.display = 'block';
             redOn.style.display = 'none';
+            
+            this.printHideCards(switchSelectorBox.dataset.ref, 'hide');
 
             [...this.switchs].filter(l => l.checked).forEach(k => this.switchsController(k));
         }
         this.printTotalPrice();
         this.validateBotCheckbox();
-        return e;
+
+        return true;
     }
     validateBotCheckbox() {
         if ([...this.switchs].some(e => !e.checked)) {
             this.prices['red-all'] = 0;
-            const cardFullRedes = document.querySelector('.complementoEliminableFull');
-            cardFullRedes.style.display = "none";
+
+            this.printHideCards('fullRedes', 'hide');
 
             return false;
         } else {
+            
+        //add fullRed clases
+            const redCard = document.querySelectorAll('.redCard');
+            redCard.forEach(r=>r.classList.add('fullRedPrice'));
 
             this.complementCheckBot.checked = true;
-            const cardFullRedes = document.querySelector('.complementoEliminableFull');
-            cardFullRedes.style.display = "block";
+            this.printHideCards('fullRedes');
 
 
             this.switchs.forEach(e => {
@@ -137,64 +204,59 @@ class CalculatorController {
         }
     }
     incrementComponentController(e) {
-        const type = e.dataset.component,
-            subBtn = e.querySelector('.subBtn'),
-            plusBtn = e.querySelector('.plusBtn'),
-            ICValue = e.querySelector('.ICValue'),
-            price = e.querySelector('.ICPrice'),
-            maxValue = Number(ICValue.dataset.max);
-
-
-        let value = Number(ICValue.dataset.value);
-
+        const subBtn = e.querySelector('.subBtn'),
+            plusBtn = e.querySelector('.plusBtn');
 
         plusBtn.addEventListener('click', () => {
+            this.printICData(e, 'i');
+        });
+        subBtn.addEventListener('click', () => {            
+            this.printICData(e, 'd');
+        });
+
+        this.printICData(e);
+    }
+    printICData(element, action = false){
+        const ICValue = element.querySelector('.ICValue'),
+        price = element.querySelector('.ICPrice'),
+        type = element.dataset.component,
+        maxValue = Number(ICValue.dataset.max);
+        
+        let value = Number(ICValue.dataset.value);
+
+        if(action == 'i'){
             if (value < maxValue) value++;
-            printData();
-        });
-        subBtn.addEventListener('click', () => {
+        }else if(action == 'd'){
             if (value > 0) value--;
-            printData();
-        });
+        }else{
+            value = 0;
+        }
+        ICValue.dataset.value = value;
 
-        const printData = () => {
-            const data = this.getICdata(type);
-            price.innerText = data[value].price;
-            ICValue.innerText = data[value].value;
+        const data = this.getICdata(type);
+        price.innerText = data[value].price;
+        ICValue.innerText = data[value].value;
 
-            const cardPrice = document.querySelector(`.cardPrice-${type}`);
-            cardPrice.innerText = data[value].price;
+        const cardPrice = document.querySelector(`.cardPrice-${type}`);
+        cardPrice.innerText = data[value].price;
 
-            const otrosComplementsNoSelected = document.querySelectorAll('.otrosComplementsNoSelected');
-            const otrosComplementoPrice = document.querySelectorAll('.otroComplementoPrice');
-            const incrementComponents = document.querySelectorAll('.incrementBox');
-            const otrosComplements = [...otrosComplementsNoSelected];
-            const otrosComplementsPrices = [...otrosComplementoPrice];
-            const incrementsBox = [...incrementComponents];
+        //display no selected box
+        const otroComplementoPrice = element.querySelector('.otroComplementoPrice');
+        const otrosComplementsNoSelected = element.querySelector('.otrosComplementsNoSelected');
+        const card = document.querySelector(`#${type}Card .counter`);
+        card.innerText = data[value].value;
+        if(value > 0){
+            otroComplementoPrice.style.display = 'block';
+            otrosComplementsNoSelected.style.display = 'none';
+            this.printHideCards(type);
+        }else{
+            otroComplementoPrice.style.display = 'none';
+            otrosComplementsNoSelected.style.display = 'block';      
+            this.printHideCards(type, 'hide');          
+        }
 
-            incrementsBox.filter((increment, index) => {
-                if (ICValue.innerText == 0) {
-                    otrosComplementsPrices[index].style.display = "none";
-                    otrosComplements[index].style.display = "block";
-                }
-                increment.addEventListener('click', (e) => {
-                    if (e) {
-                        if (ICValue.innerText == 0) {
-                            otrosComplementsPrices[index].style.display = "none";
-                            otrosComplements[index].style.display = "block";
-                        } else {
-                            otrosComplementsPrices[index].style.display = "block";
-                            otrosComplements[index].style.display = "none";
-                        }
-                    }
-                });
-            });
-
-            this.prices['IC-' + type] = data[value].price;
-            this.printTotalPrice();
-        };
-
-        printData();
+        this.prices['IC-' + type] = data[value].price;
+        this.printTotalPrice();
     }
     getICdata(key) {
         switch (key) {
@@ -438,81 +500,24 @@ class CalculatorController {
     complementCheckDiffController(e) {
         if (e.checked) {
             this.prices[e.dataset.name] = Number(e.value);
+            this.printHideCards(e.dataset.name);
         } else {
             this.prices[e.dataset.name] = 0;
+            this.printHideCards(e.dataset.name, 'hide');
         }
         this.printTotalPrice();
     }
+    printHideCards(element, action = 'display'){
+        let card = element;
 
-    addCardsController() {
-        this.ICValues = document.querySelectorAll('.ICValue');
-        const allInputs = [...this.switchs, ...this.complementCheckDiff, ...this.ICValues]
+        if(typeof element != 'object') card = document.querySelector(`#${element}Card`);
 
-        const complementCards = document.querySelectorAll('.complementoEliminable');
-        const subBtn = document.querySelectorAll('.subBtn');
-        const plusBtn = document.querySelectorAll('.plusBtn');
-
-        const checkFullRedes = document.getElementById('complementCheckBot');
-        const cardFullRedes = document.querySelector('.complementoEliminableFull');
-
-        checkFullRedes.addEventListener('change', (e) => {
-            if (checkFullRedes.checked) {
-                cardFullRedes.style.display = "block";
-                complementCards[0].style.display = "block";
-                complementCards[1].style.display = "block";
-                complementCards[2].style.display = "block";
-                complementCards[3].style.display = "block";
-            } else {
-                cardFullRedes.style.display = "none";
-                complementCards[0].style.display = "none";
-                complementCards[1].style.display = "none";
-                complementCards[2].style.display = "none";
-                complementCards[3].style.display = "none";
-            }
-        });
-
-        const removeCards = document.querySelectorAll('.removeCard');
-
-        allInputs.filter((input, index) => {
-
-            input.addEventListener('click', (e) => {
-                if (input.checked) {
-                    complementCards[index].style.display = "block";
-
-                } else {
-                    complementCards[index].style.display = "none";
-                }
-            });
-
-            plusBtn.forEach(btn => btn.addEventListener('click', () => {
-                if (parseInt(input.innerText) > 0 || input.checked) {
-                    complementCards[index].style.display = "block";
-                } else {
-                    complementCards[index].style.display = "none";
-                }
-            }));
-            subBtn.forEach(btn => btn.addEventListener('click', () => {
-                if (parseInt(input.innerText) > 0 || input.checked) {
-                    complementCards[index].style.display = "block";
-                } else {
-                    complementCards[index].style.display = "none";
-                }
-            }));
-
-            removeCards.forEach((removeCard, icard) => {
-                removeCard.addEventListener('click', (e) => {
-                    if (index == icard) {
-                        complementCards[index].style.display = "none";
-                        input.checked = false;
-                        cardFullRedes.style.display = "none";
-                        checkFullRedes.check = false;
-                    };
-                });
-            });
-
-        });
-
-    };
+        if(action == 'display'){
+            card.style.display = 'block';
+        }else{
+            card.style.display = 'none';
+        }
+    }
 
     printTotalPrice() {
         this.total = 0;

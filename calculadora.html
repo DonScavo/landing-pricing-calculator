@@ -35,7 +35,7 @@
                     <p class="ffRegular">El Plan Starter incluye 10,000 menciones mensuales. Puedes sumar más menciones
                         a tu plan por un
                         costo adicional.</p>
-                    <div class="mencionesNumber">10,000</div>
+                    <div class="mencionesNumber mentionNumber">10,000</div>
                 </div>
             </div>
             <input id="barraRangoMenciones" class="barraRango" type="range" min="0" max="4" value="0">
@@ -330,75 +330,81 @@
                 <div class="complementoAgregado">
                     <h4 class="ffBold">MENCIONES</h4>
                     <p class="ffRegular">USD $<span class="menciones-price">0</span> / mes | <span
-                            class="mencionesQuantity">10,000</span> menciones</p>
+                            class="mencionesQuantity mentionNumber">10,000</span> menciones</p>
                 </div>
 
-                <div id="twitterCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="twitterCard" class="complementoAgregado complementoEliminable redCard" style="display: none;">
                     <h4 class="ffBold">TWITTER</h4>
-                    <p class="ffRegular">USD $200 / mes </p>
+                    <p class="ffRegular cardRedPrice">USD $200 / mes </p>
+                    <p class="ffRegular cardRedHidePrice">USD $0 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
                 </div>
-
-                <div id="linkedinCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="linkedinCard" class="complementoAgregado complementoEliminable redCard" style="display: none;">
                     <h4 class="ffBold">LINKEDIN</h4>
-                    <p class="ffRegular">USD $100 / mes </p>
+                    <p class="ffRegular cardRedPrice">USD $100 / mes </p>
+                    <p class="ffRegular cardRedHidePrice">USD $0 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="youtubeCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="youtubeCard" class="complementoAgregado complementoEliminable redCard" style="display: none;">
                     <h4 class="ffBold">YOUTUBE</h4>
-                    <p class="ffRegular">USD $100 / mes </p>
+                    <p class="ffRegular cardRedPrice">USD $100 / mes </p>
+                    <p class="ffRegular cardRedHidePrice">USD $0 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="facebookCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="facebookCard" class="complementoAgregado complementoEliminable redCard" style="display: none;">
                     <h4 class="ffBold">FACEBOOK</h4>
-                    <p class="ffRegular">USD $300 / mes </p>
+                    <p class="ffRegular cardRedPrice">USD $300 / mes </p>
+                    <p class="ffRegular cardRedHidePrice">USD $0 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="fullRedesCard" class="complementoAgregado complementoEliminableFull" style="display: none;">
+
+                <div id="fullRedesCard" class="complementoAgregado complementoEliminableFull fullRedCard" style="display: none;">
                     <h4 class="ffBold">FULL REDES + DETECTOR DE BOTS</h4>
                     <p class="ffRegular">USD $300 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
                 </div>
-                <div id="mediosInternacionalesCard" class="complementoAgregado complementoEliminable" style="display: none;">
+
+                <div id="mediaCard" class="complementoAgregado complementoEliminable complementDiffCard" style="display: none;">
                     <h4 class="ffBold">MEDIOS INTERNACIONALES </h4>
                     <p class="ffRegular">USD $300 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
                 </div>
-                <div id="brandDetectorCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="brandCard" class="complementoAgregado complementoEliminable complementDiffCard" style="display: none;">
                     <h4 class="ffBold">BRAND DETECTOR</h4>
                     <p class="ffRegular">USD $300 / mes </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
                 </div>
-                <div id="usuariosCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                
+                <div id="usersCard" class="complementoAgregado complementoEliminable ICCards" style="display: none;">
                     <h4 class="ffBold">USUARIOS</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-users">200</span> / mes | 5 usuarios extra </p>
+                    <p class="ffRegular">USD $<span class="cardPrice-users">200</span> / mes | <span class="counter">5</span> usuarios extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="reportesCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="reportsCard" class="complementoAgregado complementoEliminable ICCards" style="display: none;">
                     <h4 class="ffBold">REPORTES AUTOMÁTICOS</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-reports">200</span> / mes | 5 informes extra </p>
+                    <p class="ffRegular">USD $<span class="cardPrice-reports">200</span> / mes | <span class="counter">5</span> informes extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="alertasCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="alertsCard" class="complementoAgregado complementoEliminable ICCards" style="display: none;">
                     <h4 class="ffBold">ALERTAS AUTOMÁTICOS</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-alerts">200</span> / mes | 5 alertas extra </p>
+                    <p class="ffRegular">USD $<span class="cardPrice-alerts">200</span> / mes | <span class="counter">5</span> alertas extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="marcasCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="marksCard" class="complementoAgregado complementoEliminable ICCards" style="display: none;">
                     <h4 class="ffBold">MARCAS PROPIAS ADICIONALES</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-marks">200</span> / mes | 10 marcas extra </p>
+                    <p class="ffRegular">USD $<span class="cardPrice-marks">200</span> / mes | <span class="counter">5</span> marcas extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
-                <div id="competidoresCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                <div id="competitorsCard" class="complementoAgregado complementoEliminable ICCards" style="display: none;">
                     <h4 class="ffBold">COMPETIDORES EXTRAS</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-competitors">200</span> / mes | <span data-value="0" class="ICValueCard"></span> competidores
+                    <p class="ffRegular">USD $<span class="cardPrice-competitors">200</span> / mes | <span class="counter">5</span> competidores
                         extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
