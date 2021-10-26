@@ -26,6 +26,65 @@ class CalculatorController {
         this.complementCheckBot.addEventListener('change', () => this.complementCheckBotController());
 
         this.complementCheckDiff.forEach(e => e.addEventListener('change', () => this.complementCheckDiffController(e)));
+
+        this.removeCardsListeners();
+    }
+    removeCardsListeners(){
+        const redCard = document.querySelectorAll('.redCard'),
+              fullRedCard = document.querySelectorAll('.fullRedCard'),
+              complementDiffCard = document.querySelectorAll('.complementDiffCard'),
+              ICCards = document.querySelectorAll('.ICCards');
+
+        [...redCard, ...fullRedCard, ...complementDiffCard, ...ICCards].forEach(e=>{
+            e.querySelector('.removeCard').addEventListener('click', ()=>this.printHideCards(e, 'hide'));
+        });
+
+        //uncheck complementDiffCard
+        complementDiffCard.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const check = document.querySelector(`.complementCheckDiff[data-name="${ref}"]`);
+                if(check) {
+                    check.checked = false;
+                    this.complementCheckDiffController(check);
+                }
+            });
+        });
+
+        //uncheck ICCards 
+        ICCards.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const ICComponent = document.querySelector(`.incrementComponents[data-component="${ref}"]`);
+                this.printICData(ICComponent);
+            });
+        });
+        
+        //uncheck redCard 
+        redCard.forEach(e=>{
+            const ref = e.id.replace('Card', '');
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const redCheck = document.querySelector(`.switchSelectorBox[data-ref="${ref}"] input`);
+                if(redCheck){
+                    redCheck.checked = false;
+                    this.switchsController(redCheck);
+                }
+            });
+        });
+
+        //uncheck redCard 
+        fullRedCard.forEach(e=>{
+            const x = e.querySelector('.removeCard');
+            x.addEventListener('click', ()=>{
+                const check = document.querySelector(`#complementCheckBot`);
+                check.checked = false;
+                this.complementCheckBotController();
+            });
+        });
+    
     }
     rangeBarController() {
         const stepts = [{
@@ -146,54 +205,59 @@ class CalculatorController {
         }
     }
     incrementComponentController(e) {
-        const type = e.dataset.component,
-            subBtn = e.querySelector('.subBtn'),
-            plusBtn = e.querySelector('.plusBtn'),
-            ICValue = e.querySelector('.ICValue'),
-            price = e.querySelector('.ICPrice'),
-            maxValue = Number(ICValue.dataset.max);
-
-
-        let value = Number(ICValue.dataset.value);
-
+        const subBtn = e.querySelector('.subBtn'),
+            plusBtn = e.querySelector('.plusBtn');
 
         plusBtn.addEventListener('click', () => {
+            this.printICData(e, 'i');
+        });
+        subBtn.addEventListener('click', () => {            
+            this.printICData(e, 'd');
+        });
+
+        this.printICData(e);
+    }
+    printICData(element, action = false){
+        const ICValue = element.querySelector('.ICValue'),
+        price = element.querySelector('.ICPrice'),
+        type = element.dataset.component,
+        maxValue = Number(ICValue.dataset.max);
+        
+        let value = Number(ICValue.dataset.value);
+
+        if(action == 'i'){
             if (value < maxValue) value++;
-            printData();
-        });
-        subBtn.addEventListener('click', () => {
+        }else if(action == 'd'){
             if (value > 0) value--;
-            printData();
-        });
+        }else{
+            value = 0;
+        }
+        ICValue.dataset.value = value;
 
-        const printData = () => {
-            const data = this.getICdata(type);
-            price.innerText = data[value].price;
-            ICValue.innerText = data[value].value;
+        const data = this.getICdata(type);
+        price.innerText = data[value].price;
+        ICValue.innerText = data[value].value;
 
-            const cardPrice = document.querySelector(`.cardPrice-${type}`);
-            cardPrice.innerText = data[value].price;
+        const cardPrice = document.querySelector(`.cardPrice-${type}`);
+        cardPrice.innerText = data[value].price;
 
-            //display no selected box
-            const otroComplementoPrice = e.querySelector('.otroComplementoPrice');
-            const otrosComplementsNoSelected = e.querySelector('.otrosComplementsNoSelected');
-            const card = document.querySelector(`#${type}Card .counter`);
-            card.innerText = data[value].value;
-            if(value > 0){
-                otroComplementoPrice.style.display = 'block';
-                otrosComplementsNoSelected.style.display = 'none';
-                this.printHideCards(type);
-            }else{
-                otroComplementoPrice.style.display = 'none';
-                otrosComplementsNoSelected.style.display = 'block';      
-                this.printHideCards(type, 'hide');          
-            }
+        //display no selected box
+        const otroComplementoPrice = element.querySelector('.otroComplementoPrice');
+        const otrosComplementsNoSelected = element.querySelector('.otrosComplementsNoSelected');
+        const card = document.querySelector(`#${type}Card .counter`);
+        card.innerText = data[value].value;
+        if(value > 0){
+            otroComplementoPrice.style.display = 'block';
+            otrosComplementsNoSelected.style.display = 'none';
+            this.printHideCards(type);
+        }else{
+            otroComplementoPrice.style.display = 'none';
+            otrosComplementsNoSelected.style.display = 'block';      
+            this.printHideCards(type, 'hide');          
+        }
 
-            this.prices['IC-' + type] = data[value].price;
-            this.printTotalPrice();
-        };
-
-        printData();
+        this.prices['IC-' + type] = data[value].price;
+        this.printTotalPrice();
     }
     getICdata(key) {
         switch (key) {
@@ -445,7 +509,9 @@ class CalculatorController {
         this.printTotalPrice();
     }
     printHideCards(element, action = 'display'){
-        const card = document.querySelector(`#${element}Card`);
+        let card = element;
+
+        if(typeof element != 'object') card = document.querySelector(`#${element}Card`);
 
         if(action == 'display'){
             card.style.display = 'block';
