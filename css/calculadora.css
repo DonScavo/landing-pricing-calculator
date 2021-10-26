@@ -196,7 +196,7 @@ form {
     font-size: 0.729vw;
     text-align: center;
     width: 4.6vw;
-    padding: 0.52vw;
+    padding: 0.52vw 0;
     border: 1px solid #E6E2E2;
     border-radius: 0.52vw;
     margin-left: 0.93vw;
@@ -421,6 +421,7 @@ input:checked+.slideSwitch:before {
     position: relative;
     z-index: 1;
     text-align: center;
+    cursor: pointer;
 }
 
 .botonesPago .pagoMensual {
@@ -532,8 +533,15 @@ input:checked+.slideSwitch:before {
     width: 1.25vw;
     height: 1.25vw;
     margin: 0 0.52vw 0 0;
-    border-radius: 0.52vw;
+    border-radius: 0.22vw;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #606060;
 }
+.inputCheckContainer input:checked {
+    background-color: #A573DD;
+}
+
 
 .inputCheckContainer p {
     font-size: 1.04vw;
