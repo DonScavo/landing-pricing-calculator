@@ -201,7 +201,8 @@
                                 <b>$<span class="ICPrice">200</span></b> <br>
                                 USD mes
                             </div>
-                            <div class="redSeleccionada otrosComplementsNoSelected  ffRegular">No seleccionado</div>
+                            <div class="redSeleccionada otrosComplementsNoSelected ffRegular" style="display: none;">No
+                                seleccionado</div>
                         </div>
                     </div>
                     <!-- otro complemento 2-->
@@ -222,7 +223,7 @@
                                 <b>$<span class="ICPrice">200</span></b> <br>
                                 USD mes
                             </div>
-                            <div class="redSeleccionada otrosComplementsNoSelected  ffRegular">No seleccionado</div>
+                            <div class="redSeleccionada otrosComplementsNoSelected ffRegular" style="display: none;">No seleccionado</div>
                         </div>
                     </div>
                     <!-- otro complemento 3-->
@@ -242,7 +243,7 @@
                                 <b>$<span class="ICPrice">40</span></b> <br>
                                 USD mes
                             </div>
-                            <div class="redSeleccionada otrosComplementsNoSelected  ffRegular">No seleccionado</div>
+                            <div class="redSeleccionada otrosComplementsNoSelected ffRegular" style="display: none;">No seleccionado</div>
                         </div>
                     </div>
                     <!-- otro complemento 4-->
@@ -263,7 +264,7 @@
                                 <b>$<span class="ICPrice">50</span></b> <br>
                                 USD mes
                             </div>
-                            <div class="redSeleccionada otrosComplementsNoSelected  ffRegular">No seleccionado</div>
+                            <div class="redSeleccionada otrosComplementsNoSelected ffRegular" style="display: none;">No seleccionado</div>
                         </div>
                     </div>
                     <!-- otro complemento 5 -->
@@ -283,7 +284,7 @@
                                 <b>$<span class="ICPrice">50</span></b> <br>
                                 USD mes
                             </div>
-                            <div class="redSeleccionada otrosComplementsNoSelected  ffRegular">No seleccionado</div>
+                            <div class="redSeleccionada otrosComplementsNoSelected ffRegular" style="display: none;">No seleccionado</div>
                         </div>
                     </div>
                 </div>
@@ -357,6 +358,21 @@
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
                 </div>
+                <div id="fullRedesCard" class="complementoAgregado complementoEliminableFull" style="display: none;">
+                    <h4 class="ffBold">FULL REDES + DETECTOR DE BOTS</h4>
+                    <p class="ffRegular">USD $300 / mes </p>
+                    <button type="button" class="botonQuitarComplemento removeCard"> X </button>
+                </div>
+                <div id="mediosInternacionalesCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                    <h4 class="ffBold">MEDIOS INTERNACIONALES </h4>
+                    <p class="ffRegular">USD $300 / mes </p>
+                    <button type="button" class="botonQuitarComplemento removeCard"> X </button>
+                </div>
+                <div id="brandDetectorCard" class="complementoAgregado complementoEliminable" style="display: none;">
+                    <h4 class="ffBold">BRAND DETECTOR</h4>
+                    <p class="ffRegular">USD $300 / mes </p>
+                    <button type="button" class="botonQuitarComplemento removeCard"> X </button>
+                </div>
                 <div id="usuariosCard" class="complementoAgregado complementoEliminable" style="display: none;">
                     <h4 class="ffBold">USUARIOS</h4>
                     <p class="ffRegular">USD $<span class="cardPrice-users">200</span> / mes | 5 usuarios extra </p>
@@ -383,7 +399,7 @@
                 </div>
                 <div id="competidoresCard" class="complementoAgregado complementoEliminable" style="display: none;">
                     <h4 class="ffBold">COMPETIDORES EXTRAS</h4>
-                    <p class="ffRegular">USD $<span class="cardPrice-competitors">200</span> / mes | 5 competidores
+                    <p class="ffRegular">USD $<span class="cardPrice-competitors">200</span> / mes | <span data-value="0" class="ICValueCard"></span> competidores
                         extra </p>
                     <button type="button" class="botonQuitarComplemento removeCard"> X </button>
 
