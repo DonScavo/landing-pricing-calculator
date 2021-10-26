@@ -482,6 +482,14 @@ input:checked+.slideSwitch:before {
     position: relative;
 }
 
+.fullRedPrice .cardRedPrice, .cardRedHidePrice{
+    display: none;
+}
+
+.fullRedPrice .cardRedHidePrice{
+    display: block;
+}
+
 .complementoAgregado h4 {
     font-size: 0.9375vw;
     margin-bottom: 0.2vw;
