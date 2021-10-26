@@ -121,7 +121,6 @@ class CalculatorController {
 
             //ocultar todas las cajas de redes y mostar la de full red y bot
 
-
         }
     }
     complementCheckBotController() {
@@ -501,7 +500,6 @@ class CalculatorController {
             }));
 
             removeCards.forEach((removeCard, icard) => {
-                console.log(index, icard);
                 removeCard.addEventListener('click', (e) => {
                     if (index == icard) {
                         complementCards[index].style.display = "none";

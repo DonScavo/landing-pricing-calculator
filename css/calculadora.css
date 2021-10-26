@@ -456,6 +456,9 @@ input:checked+.slideSwitch:before {
 .pricePlanAnual .ffRegular {
     font-size: 1.3vw;
 }
+.fsTotalpriceFull {
+    font-size: 2vw;
+}
 .totalPriceFull {
     text-decoration: line-through;
 }
@@ -498,6 +501,7 @@ input:checked+.slideSwitch:before {
     right: 0.52vw;
     border: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 .inputStyle {
